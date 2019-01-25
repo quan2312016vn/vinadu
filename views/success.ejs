@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Thank you for taking this survey.<br>
+    Your information: <br>
+    Name: <%= data.name %> <br>
+    Email: <%= data.email %> <br>
+    Phone: <%= data.phone %> <br>
+    Your favorite pets:
+    <% if (typeof data.pet == "object") {
+      let checkNone = false;
+      data.pet.forEach(item => {
+        if(item == "none") { %>
+          có xạo lol quá hok dạ !!!
+        <%  checkNone = true;
+        }
+      });
+      if (!checkNone) { %>
+        <%= data.pet.join(", "); %>.
+      <% }
+      } else if (typeof data.pet == "string") { %>
+      <%= data.pet %>.
+    <% } else { %>
+      you hasn't ticked any box yet.
+    <% } %>
+
+  </body>
+</html>
