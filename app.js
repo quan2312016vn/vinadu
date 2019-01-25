@@ -25,4 +25,4 @@ app.get("/deletedata", (req, res) => {
   database = [];
   res.send("Deleted database!!!");
 });
-app.listen(process.env.PORT||3000);
+app.listen(process.env.OPENSHIFT_NODEJS_PORT||8080, process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
